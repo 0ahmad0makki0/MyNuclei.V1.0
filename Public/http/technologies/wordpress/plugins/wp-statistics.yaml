@@ -1,0 +1,50 @@
+id: wordpress-wp-statistics
+
+info:
+  name: WP Statistics Detection
+  author: ricardomaia
+  severity: info
+  reference:
+    - https://wordpress.org/plugins/wp-statistics/
+  metadata:
+    max-request: 1
+    plugin_namespace: wp-statistics
+    wpscan: https://wpscan.com/plugin/wp-statistics
+  tags: tech,wordpress,wp-plugin,top-200
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/plugins/wp-statistics/readme.txt"
+
+    payloads:
+      last_version: helpers/wordpress/plugins/wp-statistics.txt
+
+    extractors:
+      - type: regex
+        part: body
+        internal: true
+        name: internal_detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+      - type: regex
+        part: body
+        name: detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+    matchers-condition: or
+    matchers:
+      - type: dsl
+        name: "outdated_version"
+        dsl:
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a00473045022100e630021d8ea3ae6c0935faf17250808fb941e3cbc0f6d3e297ce30584cfc90ac02204003459d64dec163e681cd369a7e7aebe4cd3f8dc10ed066ea029215b16bc7ea:922c64590222798bb761d5b6d8e72950

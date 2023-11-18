@@ -1,0 +1,50 @@
+id: wordpress-loginizer
+
+info:
+  name: Loginizer Detection
+  author: ricardomaia
+  severity: info
+  reference:
+    - https://wordpress.org/plugins/loginizer/
+  metadata:
+    max-request: 1
+    plugin_namespace: loginizer
+    wpscan: https://wpscan.com/plugin/loginizer
+  tags: tech,wordpress,wp-plugin,top-100,top-200
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/plugins/loginizer/readme.txt"
+
+    payloads:
+      last_version: helpers/wordpress/plugins/loginizer.txt
+
+    extractors:
+      - type: regex
+        part: body
+        internal: true
+        name: internal_detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+      - type: regex
+        part: body
+        name: detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+    matchers-condition: or
+    matchers:
+      - type: dsl
+        name: "outdated_version"
+        dsl:
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a0047304502202f56e12e3ad293e7b8d77e7808a9b53bdddeebaef82f9449244f9dc1a0d38f9a022100b9d6afe74274e1be6fdaa11282a142d6273a7cf26b76512408a6642098696f37:922c64590222798bb761d5b6d8e72950

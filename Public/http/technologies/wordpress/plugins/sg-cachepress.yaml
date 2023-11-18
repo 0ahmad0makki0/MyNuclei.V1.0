@@ -1,0 +1,50 @@
+id: wordpress-sg-cachepress
+
+info:
+  name: Speed Optimizer – The All-In-One WordPress Performance-Boosting Plugin Detection
+  author: ricardomaia
+  severity: info
+  reference:
+    - https://wordpress.org/plugins/sg-cachepress/
+  metadata:
+    max-request: 1
+    plugin_namespace: sg-cachepress
+    wpscan: https://wpscan.com/plugin/sg-cachepress
+  tags: tech,wordpress,wp-plugin,top-100,top-200
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/plugins/sg-cachepress/readme.txt"
+
+    payloads:
+      last_version: helpers/wordpress/plugins/sg-cachepress.txt
+
+    extractors:
+      - type: regex
+        part: body
+        internal: true
+        name: internal_detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+      - type: regex
+        part: body
+        name: detected_version
+        group: 1
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+
+    matchers-condition: or
+    matchers:
+      - type: dsl
+        name: "outdated_version"
+        dsl:
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a00473045022100cdca537b03104b9f07c2331759a1620ad8f264830c6a3fe8ad5a77dd20437dd302207bc5efde28a48aae83979aca35be3efccd9e97722955de9e4bdf825ab9e59e3a:922c64590222798bb761d5b6d8e72950
