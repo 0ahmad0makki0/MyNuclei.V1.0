@@ -1,5 +1,3 @@
-id: Idor_IterateURLs
-
 info:
   name: Idor Iterate URLs
   author: Ahmed Makki
@@ -10,15 +8,16 @@ info:
     fofa-query: title="BSPHP"
   tags: urls, idor
 
-http:
+templates:
   - name: dynamic-path-scan
-    path: "{{BaseURL}}/n/{{i}}"
+    path:
+      - "{{BaseURL}}/{{i}}"
     method: GET
     retries: 1
-    expected:
-      - status:
+    checks:
+      - type: code
+        compare:
           - 200
-
     # The loop to generate paths from 1 to 1000
     iterate:
       variable: i
