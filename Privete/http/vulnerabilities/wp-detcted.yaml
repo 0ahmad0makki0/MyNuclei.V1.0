@@ -29,12 +29,6 @@ http:
           - "javascript&colon;alert(document.domain);dd&sol;&sol;"
           - "Froxlor"
         condition: or
-
-      - type: word
-        part: header
-        words:
-          - "text/html"
-
       - type: status
         status:
           - 200
