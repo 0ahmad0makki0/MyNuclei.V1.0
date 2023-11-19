@@ -19,10 +19,10 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/trace'
+      - '{{BaseURL}}'
     matchers:
       - type: word
         words:
           - 'uploud'
           - 'PDF'
-        condition: or
+        condition: and
