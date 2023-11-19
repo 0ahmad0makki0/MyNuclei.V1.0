@@ -6,7 +6,7 @@ info:
   severity: info
   tags: froxlor,xss,testword
   
-http:
+request:
   - method: GET
     path:
       - '{{BaseURL}}/license.txt'
