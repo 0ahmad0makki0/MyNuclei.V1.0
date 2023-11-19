@@ -21,8 +21,8 @@ http:
     path:
       - '{{BaseURL}}'
     matchers:
-      - type: word
+      - type: regex
         words:
-          - 'upLoud'
-          - 'PdF'
+          - '(?i)upLoud'
+          - '(?i)PdF'
         condition: or
