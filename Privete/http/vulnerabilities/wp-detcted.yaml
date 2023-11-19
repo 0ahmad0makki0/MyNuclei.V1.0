@@ -26,12 +26,14 @@ http:
       - type: word
         part: body
         words:
-          - "Cookie"
-        
+          - "javascript&colon;alert(document.domain);dd&sol;&sol;"
+          - "Froxlor"
+        condition: or
+
       - type: word
         part: header
         words:
-          - "Cookie"
+          - "text/html"
 
       - type: status
         status:
