@@ -8,7 +8,7 @@ info:
     fofa-query: title="BSPHP"
   tags: urls, idor
 
-templates:
+http:
   - name: dynamic-path-scan
     path:
       - "{{BaseURL}}/{{i}}"
