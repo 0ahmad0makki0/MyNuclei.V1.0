@@ -23,7 +23,7 @@ http:
     matchers:
       - type: regex
         part: body
-        words:
+        regex:
           - '(?i)upLoud'
           - '(?i)PdF'
         condition: or
