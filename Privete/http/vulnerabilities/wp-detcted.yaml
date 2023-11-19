@@ -21,7 +21,7 @@ http:
     path:
       - '{{BaseURL}}/license.txt'
 
-    matchers-condition: or
+    matchers-condition: and
     matchers:
       - type: word
         part: body
