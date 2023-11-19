@@ -27,7 +27,6 @@ http:
         part: body
         words:
           - "Cookie"
-        condition: or
         
       - type: word
         part: header
