@@ -19,9 +19,9 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/index.php/javascript%26colon%3Balert(document.domain);dd%26sol%3b%26sol%3b'
+      - '{{BaseURL}}/license.txt'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
       - type: word
         part: body
