@@ -26,4 +26,4 @@ http:
         regex:
           - '(?i)upLoud'
           - '(?i)PdF'
-        condition: or
+        condition: and
