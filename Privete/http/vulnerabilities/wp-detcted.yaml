@@ -1,7 +1,7 @@
 id: wp-detcted
 
 info:
-  name: Froxlor Server Management - Cross-Site Scripting
+  name: WordPress Detector
   author: tess
   severity: info
   description: |
