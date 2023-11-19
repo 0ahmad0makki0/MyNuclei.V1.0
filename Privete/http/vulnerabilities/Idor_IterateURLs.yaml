@@ -9,16 +9,18 @@ info:
     verified: true
     max-request: 1
     fofa-query: title="BSPHP"
-  tags: urls,idor
+  tags: urls, idor
   
+iterate:
+  type: numbers
+  values: "1-999999"
+
 requests:
-  - template: iterate
-    http:
-      - method: GET
-        path:
-          - '/{{iterate}}'
-        matchers:
-          - type: status
-            status:
-              - 200
-        follow-redirects: true
+  - method: GET
+    path:
+      - '/{{iterate}}'
+    matchers:
+      - type: status
+        status:
+          - 200
+    follow-redirects: true
