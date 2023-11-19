@@ -26,9 +26,7 @@ http:
       - type: word
         part: body
         words:
-          - "javascript&colon;alert(document.domain);dd&sol;&sol;"
-          - "Froxlor"
-        condition: or
+          - "WordPress"
 
       - type: word
         part: header
