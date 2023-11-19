@@ -14,8 +14,7 @@ http:
     iterate:
       variable: i
       list: "1-1000"
-    request:
-      - path: "google.com/{{i}}"
+    path: "google.com/{{i}}"
     matchers:
       - type: status
         status:
