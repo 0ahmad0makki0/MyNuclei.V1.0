@@ -15,7 +15,7 @@ iterate:
   type: numbers
   values: "1-999999"
 
-requests:
+http:
   - method: GET
     path:
       - '/{{iterate}}'
