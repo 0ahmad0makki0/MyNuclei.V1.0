@@ -25,7 +25,7 @@ http:
     matchers:
       - type: word
         words:
-          - '"cookie":'
+          - '"Cookie":'
           - '"aws":'
           - '"server":'
         condition: or
