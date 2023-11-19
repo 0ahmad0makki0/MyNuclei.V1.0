@@ -26,8 +26,8 @@ http:
       - type: word
         part: body
         words:
+          - "{"
           - "cookie"
-          - "Froxlor"
         condition: or
 
       - type: word
