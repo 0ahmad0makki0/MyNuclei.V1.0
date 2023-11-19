@@ -1,0 +1,28 @@
+id: Idor_IterateURLs
+
+info:
+  name: Idor Iterate URLs
+  author: Ahmed Makki
+  severity: medium
+  description: Iterate through URLs with numbers from 1 to 999999.
+  metadata:
+    verified: true
+    max-request: 1
+    fofa-query: title="BSPHP"
+  tags: urls,idor
+  
+iterate:
+  type: numbers
+  values: "1-999999"
+
+http:
+  - method: GET
+    path:
+      - '/{{iterate}}'
+    matchers:
+      - type: status
+        status:
+          - 200
+    follow-redirects: true
+
+# digest: 4a0a004730450220033c5256d9f095151dcc179c9e313d7a1a7d6990a474993090e051058fed29980221008ab4209bba10c0fcf2b914bb58c0fae56f45e3b5330d5e9fc9d620485c4dba7d:922c64590222798bb761d5b6d8e72950
