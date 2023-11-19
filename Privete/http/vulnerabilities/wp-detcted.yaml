@@ -28,7 +28,7 @@ http:
         words:
           - "javascript&colon;alert(document.domain);dd&sol;&sol;"
           - "Froxlor"
-        condition: and
+        condition: or
 
       - type: word
         part: header
