@@ -17,10 +17,9 @@ iterate:
 
 http:
   - method: GET
-    path:
-      - '/{{iterate}}'
+    path: '/{{iterate}}'
+    follow-redirects: true
     matchers:
       - type: status
         status:
           - 200
-    follow-redirects: true
