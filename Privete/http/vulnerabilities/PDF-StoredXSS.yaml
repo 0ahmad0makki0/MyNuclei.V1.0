@@ -25,4 +25,4 @@ http:
         words:
           - 'uploud'
           - 'PDF'
-        condition: and
+        condition: or
