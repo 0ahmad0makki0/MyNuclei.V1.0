@@ -27,7 +27,8 @@ http:
         part: body
         words:
           - "Not Found"
-
+        condition: and
+        
       - type: word
         part: header
         words:
