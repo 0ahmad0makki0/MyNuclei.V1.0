@@ -16,7 +16,7 @@ iterate:
 
 http:
   - method: GET
-    path: '/{{BaseURL}}/{{iterate}}'
+    path: '{{BaseURL}}/{{iterate}}'
     follow-redirects: true
     matchers:
       - type: status
