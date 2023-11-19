@@ -1,9 +1,9 @@
 id: wp-detcted
 
 info:
-  name: WordPress Detector
-  author: Ahmed Makki
-  severity: info
+  name: Froxlor Server Management - Cross-Site Scripting
+  author: tess
+  severity: medium
   description: |
     Froxlor Server Management is susceptible to cross-site scripting via clicking the forgot password link. An attacker can inject arbitrary script in the browser of an unsuspecting user in the context of the affected site. This can allow the attacker to steal cookie-based authentication credentials and launch other attacks.
   classification:
