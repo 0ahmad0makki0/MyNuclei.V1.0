@@ -19,20 +19,14 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/license.txt'
+      - '{{BaseURL}}/trace'
 
     matchers-condition: and
     matchers:
       - type: word
-        part: body
         words:
-          - "Not Found"
+          - "Cookie"
         condition: and
-        
-      - type: word
-        part: header
-        words:
-          - "text/html"
 
       - type: status
         status:
