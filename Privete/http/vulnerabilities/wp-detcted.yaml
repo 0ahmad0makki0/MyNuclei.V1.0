@@ -20,13 +20,11 @@ http:
   - method: GET
     path:
       - '{{BaseURL}}'
-    stop-at-first-match: true
-    matchers-condition: and
     matchers:
       - type: word
         words:
           - '"Cookie":'
-          - '"Ed=class extends'
+          - 'mobily'
           - '"server":'
         condition: or
 
