@@ -19,14 +19,14 @@ info:
 http:
   - method: GET
     path:
-      - '{{BaseURL}}/trace'
+      - '{{BaseURL}}'
     stop-at-first-match: true
     matchers-condition: and
     matchers:
       - type: word
         words:
           - '"Cookie":'
-          - '"aws":'
+          - '"Ed=class extends'
           - '"server":'
         condition: or
 
