@@ -4,21 +4,22 @@ info:
   name: Idor Iterate URLs
   author: Ahmed Makki
   severity: medium
-  description: Iterate through URLs with numbers from 1 to 999999.
+  description: Iterate through URLs with numbers from 1 to 1000.
   metadata:
     verified: true
     fofa-query: title="BSPHP"
   tags: urls, idor
 
-iterate:
-  type: numbers
-  values: "1-999999"
-
 http:
-  - method: GET
-    path: '{{BaseURL}}/{{iterate}}'
-    follow-redirects: true
-    matchers:
-      - type: status
-        status:
+  - name: dynamic-path-scan
+    path: "{{BaseURL}}/n/{{i}}"
+    method: GET
+    retries: 1
+    expected:
+      - status:
           - 200
+
+    # The loop to generate paths from 1 to 1000
+    iterate:
+      variable: i
+      list: "1-1000"
