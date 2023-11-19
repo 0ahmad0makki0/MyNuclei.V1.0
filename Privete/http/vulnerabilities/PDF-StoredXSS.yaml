@@ -25,4 +25,5 @@ http:
         words:
           - 'uploud'
           - 'PDF'
-        condition: or
+        condition: and
+        ignorecase: true
