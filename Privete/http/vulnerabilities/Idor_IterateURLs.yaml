@@ -10,15 +10,14 @@ info:
 
 http:
   - name: dynamic-path-scan
-    path:
-      - "{{BaseURL}}/{{i}}"
     method: GET
     retries: 1
-    checks:
-      - type: code
-        compare:
-          - 200
-    # The loop to generate paths from 1 to 1000
     iterate:
       variable: i
       list: "1-1000"
+    request:
+      - path: "google.com/{{i}}"
+    matchers:
+      - type: status
+        status:
+          - 200
