@@ -7,7 +7,6 @@ info:
   description: Iterate through URLs with numbers from 1 to 999999.
   metadata:
     verified: true
-    max-request: 1
     fofa-query: title="BSPHP"
   tags: urls, idor
 
@@ -17,7 +16,7 @@ iterate:
 
 http:
   - method: GET
-    path: '/{{iterate}}'
+    path: '/{{BaseURL}}/{{iterate}}'
     follow-redirects: true
     matchers:
       - type: status
