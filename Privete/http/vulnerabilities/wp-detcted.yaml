@@ -4,18 +4,12 @@ info:
   name: WordPress Detector
   author: Ahmed Makki
   severity: info
-  description: |
-    Froxlor Server Management is susceptible to cross-site scripting via clicking the forgot password link. An attacker can inject arbitrary script in the browser of an unsuspecting user in the context of the affected site. This can allow the attacker to steal cookie-based authentication credentials and launch other attacks.
-  classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
-    cvss-score: 5.4
-    cwe-id: CWE-80
   tags: froxlor,xss,testword
-
+  
 http:
   - method: GET
     path:
       - '{{BaseURL}}/license.txt'
     matchers:
       - type: word
-        words:  "WordPress"
+        words: 'WordPress'
