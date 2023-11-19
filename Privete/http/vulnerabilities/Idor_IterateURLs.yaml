@@ -10,16 +10,14 @@ info:
     max-request: 1
     fofa-query: title="BSPHP"
   tags: urls, idor
-  
-iterate:
-  type: numbers
-  values: "1-999999"
 
-http:
-  - method: GET
-    path: '/{{iterate}}'
-    follow-redirects: true
-    matchers:
-      - type: status
-        status:
-          - 200
+requests:
+  - template: iterate
+    http:
+      - method: GET
+        path: '/{{iterate}}'
+        follow-redirects: true
+        matchers:
+          - type: status
+            status:
+              - 200
