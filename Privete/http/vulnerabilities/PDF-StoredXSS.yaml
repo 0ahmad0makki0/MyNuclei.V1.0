@@ -1,0 +1,28 @@
+id: PDF-StoredXSS
+
+info:
+  name: Stored xss in pdf
+  author: Ahmed Makki
+  severity: high
+  description: |
+    Stored xss in pdf file
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
+    cvss-score: 5.4
+    cwe-id: CWE-80
+  metadata:
+    verified: true
+    max-request: 1
+    shodan-query: title:"Froxlor Server Management Panel"
+  tags: xss
+
+http:
+  - method: GET
+    path:
+      - '{{BaseURL}}/trace'
+    matchers:
+      - type: word
+        words:
+          - 'uploud'
+          - 'PDF'
+        condition: and
