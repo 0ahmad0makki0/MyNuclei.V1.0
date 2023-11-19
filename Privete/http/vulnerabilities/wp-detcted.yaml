@@ -20,9 +20,17 @@ http:
   - method: GET
     path:
       - '{{BaseURL}}/trace'
-
+    
+    matchers-condition: or
     matchers:
       - type: word
+        part: body
+        words:
+          - "Cookie"
+        condition: or
+        
+      - type: word
+        part: header
         words:
           - "Cookie"
 
