@@ -23,7 +23,6 @@ http:
     matchers:
       - type: word
         words:
-          - 'uploud'
-          - 'PDF'
-        condition: and
-        ignorecase: true
+          - 'upLoud'
+          - 'PdF'
+        condition: or
